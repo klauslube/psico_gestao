@@ -74,10 +74,27 @@ docker compose exec web rails console
 docker compose exec web rails db:migrate
 
 # Run tests
-docker compose exec web rspec
+docker compose exec web bundle exec rspec
 
 # Rebuild containers (after Gemfile changes)
 docker compose build
+
+## Running Tests
+
+Run tests inside Docker:
+
+docker compose exec web bundle exec rspec
+
+Check code coverage:
+
+# Linux
+xdg-open coverage/index.html
+
+# Mac
+open coverage/index.html
+
+# Windows (WSL)
+explorer.exe coverage/index.html
 
 ## Environment Variables
 
@@ -93,6 +110,10 @@ This project uses:
 - Ruby on Rails (API mode)
 - PostgreSQL
 - RSpec for testing
+- FactoryBot for test fixtures
+- Faker for fake data generation
+- Shoulda Matchers for Rails testing
+- SimpleCov for code coverage
 - Docker & Docker Compose
 
 ## License
