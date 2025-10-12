@@ -1,24 +1,52 @@
-# README
+# Psico Gestão
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Management system for psychologists and clinics.
 
-Things you may want to cover:
+## Prerequisites
 
-* Ruby version
+- Ruby 3.2.3
+- Rails 8.0.x
+- PostgreSQL 14+
 
-* System dependencies
+## Setup
 
-* Configuration
+1. Clone the repository
 
-* Database creation
+git clone <repository-url>
+cd psico_gestao
 
-* Database initialization
+2. Install dependencies
 
-* How to run the test suite
+bundle config set --local path 'vendor/bundle'
+bundle install
 
-* Services (job queues, cache servers, search engines, etc.)
+3. Setup database
 
-* Deployment instructions
+rails db:create
+rails db:migrate
 
-* ...
+4. Start the server
+
+rails server
+
+The API will be available at http://localhost:3000
+
+## Environment Variables
+
+Copy the example file and configure:
+
+cp .env.example .env
+
+See .env.example for required variables.
+
+## Development
+
+This project uses:
+- Ruby on Rails (API mode)
+- React
+- PostgreSQL
+- RSpec for testing
+
+## License
+
+This project is private and for portfolio purposes.
