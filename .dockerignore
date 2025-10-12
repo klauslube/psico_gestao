@@ -43,3 +43,19 @@
 # Ignore Docker-related files
 /.dockerignore
 /Dockerfile*
+
+# Ignore local gems (vendor/bundle)
+/vendor/bundle
+
+# Ignore node_modules if you add frontend later
+/node_modules
+
+# Ignore editor files
+*.swp
+*.swo
+*.swn
+.vscode/
+.idea/
+
+# Ignore test coverage
+/coverage/
