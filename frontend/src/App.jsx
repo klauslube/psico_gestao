@@ -1,33 +1,30 @@
-import { useState, useEffect } from 'react'
-import api from './services/api'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import Dashboard from './pages/Dashboard';
 
 function App() {
-  const [apiStatus, setApiStatus] = useState('Checking...')
-
-  useEffect(() => {
-    const checkAPI = async () => {
-      try {
-        const response = await api.get('/up')
-        setApiStatus('API Connected!')
-        console.log('API Response:', response.data)
-      } catch (error) {
-        setApiStatus('API Disconnected')
-        console.error('API Error:', error)
-      }
-    }
-    
-    checkAPI()
-  }, [])
-
   return (
-    <div className="App">
-      <h1>Psico Gestão</h1>
-      <p>API Status: {apiStatus}</p>
-      <p>Frontend: React + Vite</p>
-      <p>Backend: Rails API</p>
-    </div>
-  )
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
+  );
 }
 
-export default App
+export default App;
