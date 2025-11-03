@@ -62,5 +62,5 @@ group :development, :test do
   gem "simplecov", "~> 0.22.0", require: false
 
   # Rails matchers for RSpec
-  gem "shoulda-matchers", "~> 6.5.0"
+  gem "shoulda-matchers", "~> 7.0.1"
 end
