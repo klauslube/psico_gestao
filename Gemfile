@@ -56,7 +56,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.5.1"
 
   # Fake data generation
-  gem "faker", "~> 3.5.2"
+  gem "faker", "~> 3.5.3"
 
   # Code coverage
   gem "simplecov", "~> 0.22.0", require: false
